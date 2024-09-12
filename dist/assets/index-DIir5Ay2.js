@@ -1,0 +1,19 @@
+(function(){const o=document.createElement("link").relList;if(o&&o.supports&&o.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))l(e);new MutationObserver(e=>{for(const t of e)if(t.type==="childList")for(const s of t.addedNodes)s.tagName==="LINK"&&s.rel==="modulepreload"&&l(s)}).observe(document,{childList:!0,subtree:!0});function i(e){const t={};return e.integrity&&(t.integrity=e.integrity),e.referrerPolicy&&(t.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?t.credentials="include":e.crossOrigin==="anonymous"?t.credentials="omit":t.credentials="same-origin",t}function l(e){if(e.ep)return;e.ep=!0;const t=i(e);fetch(e.href,t)}})();let d=[{header:"Ved Nørrebro st",description:`Det er en kold vintermorgen i februar. Din cykel fungerer egentlig fint, men du orker simpelthen ikke den hårde tur ud til det vindblæste Vestamager.
+    <br><br/>
+    Du beslutter dig for at tage metroen. Du går ned for at checke ind med dit rejsekort, men din saldo er for lav. Du er studerende, så du gider ikke bruge 100kr på at fylde saldoen op igen. 
+    <br><br/>
+    DU KØRER SORT! og må ikke få en bøde!! Du står på Nørrebro st og skal med metro til DMJX. - Hvad gør du?`,choices:[{text:"M3 mod Frederiksberg",nextState:1},{text:"M3 mod Kongens Nytorv",nextState:2}],imgUrl:"Metro.jpeg"},{header:"Ved Frederiksberg st",description:`Du er hermed succesfuldt kommet til Frederiksberg - du tager rulletrappen op. Stationen er fyldt med gammel sne, der er blevet slæbt ned. 
+    <br><br/>
+    Alt er beskidt. Du støder ind i en forretningsmand i jakkesæt på vejen hen til din næste metro - han kigger ondt på dig og snakker videre i sin telefon.
+    <br><br/>
+    Du bevæger dig ned på en ny perron og overvejer dit liv. Hvad gør du herfra?`,choices:[{text:"M1 mod Vestamager",nextState:3},{text:"M2 mod Københavns Lufthavn",nextState:4}],imgUrl:"Metro.frederiksberg.jpg"},{header:"Ved Kongens Nytorv",description:`Så kom du til Kgs Nytorv. Det mest gudsforladte sted i hele Absalons København. To mænd begynder at råbe op og forstyrre de andre metro-gæster. 
+    <br><br/>
+    En halv fransk hotdog med et fodaftryk fra en vinterstøvle str. 46 ligger på jorden som et fjernt minde om den weekend der nu er forbi, og virkeligheden har ramt. 
+    <br><br/>
+    Du flygter. Ned på en ny perron. Du skal altså stadig i skole. Du skal hen og kode hele dagen. Hvad gør du herfra?`,choices:[{text:"M1 mod Vestamager",nextState:5},{text:"M2 mod Københavns Lufthavn",nextState:4}],imgUrl:"Metro.KgsNytorv.jpg"},{header:"Ved DR Byen",description:`TILLYKKE Du er nu kommet til DR Byen, og har dermed klaret spillet! 
+    <br><br/>
+    "Kom I Skole Part 2: Killer Bikes" er under udvikling. 
+    <br><br/>
+    Vi ses snart 
+    <br><br/>
+    vh Valdemar`,choices:[{text:"prøv igen",nextState:0}],imgUrl:"metro.DRByen.jpg"},{header:"Forkert retning",description:"Forkert retning. <br><br/> Spillet er tabt",choices:[{text:"prøv igen",nextState:0}],imgUrl:"sadSmiley.webp"},{header:"Kontrollør",description:"Du støder desværre ind i en kontrollør og får en bøde på 1.200 kroner. <br><br/>Spillet er tabt",choices:[{text:"prøv igen",nextState:0}],imgUrl:"sadSmiley.webp"}];const m=document.querySelector("header h1"),f=document.querySelector("#text p"),a=document.querySelector("#options"),p=document.querySelector("main img");let n=0;function b(){n=0,c(n),g(n),u(n)}function c(r){console.log(d[r].header),m.textContent=d[r].header,f.innerHTML=d[r].description}function g(r){p.src="./færdige billeder/"+d[r].imgUrl}function u(r){a.innerHTML="",console.log(d[r]),d[r].choices.forEach(o=>{const i=document.createElement("button");i.innerText=o.text,i.classList.add("btn-color"),i.addEventListener("click",()=>{h(o)}),a.append(i)})}function h(r){n=r.nextState,c(n),g(n),u(n)}b();
