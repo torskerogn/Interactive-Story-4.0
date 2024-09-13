@@ -75,7 +75,7 @@ export let newStory = [
       description: `Du støder desværre ind i en kontrollør og får en bøde på 1.200 kroner. <br><br/>Spillet er tabt.`,
       choices: [{text: "PRØV IGEN", nextState: 6}],
       // choices: [-1],
-      imgUrl: "stack.jpg",
+      imgUrl: "politi.jpg",
     },
     //6 FORSIDE
     {
